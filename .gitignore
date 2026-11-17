@@ -1,0 +1,33 @@
+# ==========================================================
+# .gitignore de la RAÍZ: reglas comunes a todo el monorepo.
+# Lo específico de Java irá en backend/.gitignore
+# y lo de Node en frontend/.gitignore.
+# ==========================================================
+
+# --- Secretos ---
+# Variables de entorno con contraseñas reales: NUNCA se suben.
+.env
+.env.*
+# Excepción: la plantilla sí se sube.
+# Va DESPUÉS de .env.* porque Git lee las reglas en orden
+# y, si varias coinciden, gana la última.
+!.env.example
+
+# --- Editores ---
+# IntelliJ IDEA
+.idea/
+*.iml
+# VS Code
+.vscode/
+
+# --- Sistema operativo ---
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+desktop.ini
+# Linux (copias de seguridad de algunos editores)
+*~
+
+# --- Logs ---
+*.log
