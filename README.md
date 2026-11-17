@@ -68,7 +68,7 @@ docker compose down
 
 🚧 En desarrollo.
 
-- [ ] Fase 1 · Setup (repo, Spring Boot, PostgreSQL en Docker)
+- [x] Fase 1 · Setup (repo, Spring Boot, PostgreSQL en Docker)
 - [ ] Fase 2 · Materia prima y compras
 - [ ] Fase 3 · Usuarios y seguridad
 - [ ] Fase 4 · Pedidos
