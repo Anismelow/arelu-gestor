@@ -21,11 +21,54 @@ Los encargos llegan por WhatsApp y las ventas se apuntan en sitios distintos, as
 | Infraestructura | Docker · Docker Compose |
 | Frontend | Next.js |
 
+## Cómo arrancarlo
+
+### Requisitos
+
+- Java 25
+- Docker con Docker Compose
+
+### Pasos
+
+1. Crea tu `.env` a partir de la plantilla y rellena los valores:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   En Windows (PowerShell): `Copy-Item .env.example .env`
+
+2. Levanta PostgreSQL:
+
+   ```bash
+   docker compose up -d
+   docker compose ps    # espera a que salga "(healthy)"
+   ```
+
+3. Arranca el backend:
+
+   ```bash
+   cd backend
+   ./mvnw spring-boot:run
+   ```
+
+   En Windows (PowerShell): `.\mvnw spring-boot:run`
+
+4. La API queda disponible en `http://localhost:8080`.
+
+### Parar
+
+```bash
+docker compose down
+```
+
+> ⚠️ `docker compose down -v` también borra el volumen, es decir, **todos los datos** de la base de datos.
+
 ## Estado
 
 🚧 En desarrollo.
 
-- [ ] Fase 1 · Setup (repo, Spring Boot, PostgreSQL en Docker)
+- [x] Fase 1 · Setup (repo, Spring Boot, PostgreSQL en Docker)
 - [ ] Fase 2 · Materia prima y compras
 - [ ] Fase 3 · Usuarios y seguridad
 - [ ] Fase 4 · Pedidos
