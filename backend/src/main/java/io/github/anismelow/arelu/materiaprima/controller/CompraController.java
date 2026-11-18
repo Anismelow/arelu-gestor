@@ -2,7 +2,7 @@ package io.github.anismelow.arelu.materiaprima.controller;
 
 import java.net.URI;
 import java.util.List;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import io.github.anismelow.arelu.materiaprima.dto.CompraRequest;
 import io.github.anismelow.arelu.materiaprima.dto.CompraResponse;
 import io.github.anismelow.arelu.materiaprima.service.CompraService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
