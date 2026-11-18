@@ -1,4 +1,4 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

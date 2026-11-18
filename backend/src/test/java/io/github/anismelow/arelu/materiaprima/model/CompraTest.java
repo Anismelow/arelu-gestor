@@ -1,4 +1,4 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
+
 
 import io.github.anismelow.arelu.shared.exception.ReglaNegocioException;
 

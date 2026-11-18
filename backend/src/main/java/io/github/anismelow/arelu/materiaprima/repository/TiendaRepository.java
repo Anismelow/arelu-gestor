@@ -1,8 +1,10 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import io.github.anismelow.arelu.materiaprima.model.Tienda;
 
 public interface TiendaRepository extends JpaRepository<Tienda, Long>{
         

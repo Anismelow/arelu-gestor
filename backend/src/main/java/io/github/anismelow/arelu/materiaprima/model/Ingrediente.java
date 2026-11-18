@@ -1,5 +1,6 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.model;
 
+import io.github.anismelow.arelu.materiaprima.model.TipoMedida;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

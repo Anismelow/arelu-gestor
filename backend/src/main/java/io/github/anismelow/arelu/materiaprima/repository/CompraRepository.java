@@ -1,7 +1,9 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.repository;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import io.github.anismelow.arelu.materiaprima.model.Compra;
 
 import java.util.List;
 

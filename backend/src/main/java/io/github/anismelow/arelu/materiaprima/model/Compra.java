@@ -1,9 +1,10 @@
-package io.github.anismelow.arelu.materiaprima;
+package io.github.anismelow.arelu.materiaprima.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 
+import io.github.anismelow.arelu.materiaprima.model.UnidadMedida;
 import io.github.anismelow.arelu.shared.exception.ReglaNegocioException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
