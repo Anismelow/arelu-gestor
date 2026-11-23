@@ -1,5 +1,7 @@
 package io.github.anismelow.arelu.usuario.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import io.github.anismelow.arelu.shared.exception.ConflictoException;
 import io.github.anismelow.arelu.usuario.dto.CrearUsuarioRequest;
 import io.github.anismelow.arelu.usuario.dto.UsuarioResponse;
-import io.github.anismelow.arelu.usuario.model.Rol;
 import io.github.anismelow.arelu.usuario.model.Usuario;
 import io.github.anismelow.arelu.usuario.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class UsuarioService {
         String nombre = request.nombreDeUsuario().trim();
 
         if (usuarioRepository.buscarPorNombre(nombre).isPresent()) {
-            throw new ConflictoException("Ya existe el nombre de usuario" + nombre);
+            throw new ConflictoException("Ya existe el nombre de usuario: " + nombre);
         }
 
         Usuario guardado = usuarioRepository.save(new Usuario(
@@ -35,6 +36,10 @@ public class UsuarioService {
 
         return UsuarioResponse.from(guardado);
 
+    }
+
+    List<UsuarioResponse> listar(){
+        return usuarioRepository.findAllByOrderByNombreDeUsuarioAsc().stream().map(UsuarioResponse::from).toList();
     }
 
 }
