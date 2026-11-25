@@ -43,7 +43,7 @@ public class UsuarioService {
 
     }
 
-    List<UsuarioResponse> listar() {
+    public List<UsuarioResponse> listar() {
         return usuarioRepository.findAllByOrderByNombreDeUsuarioAsc().stream().map(UsuarioResponse::from).toList();
     }
 
