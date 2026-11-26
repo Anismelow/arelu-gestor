@@ -3,6 +3,7 @@ package io.github.anismelow.arelu.shared.exception;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -55,6 +56,12 @@ public class GlobalExceptionHandler {
     public ProblemDetail manejarCuerpoIlegible(HttpMessageNotReadableException ex) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,
                 "El cuerpo de la petición no es un JSON válido o tiene valores no permitidos");
+    }
+
+    @ExceptionHandler (AuthenticationException.class)
+    public ProblemDetail manejarAutentucacion(AuthenticationException ex){
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED,"usuario o contraseña incorrectos");
+
     }
 
 }
