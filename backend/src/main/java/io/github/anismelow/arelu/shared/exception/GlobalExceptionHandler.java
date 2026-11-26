@@ -59,8 +59,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler (AuthenticationException.class)
-    public ProblemDetail manejarAutentucacion(AuthenticationException ex){
-        return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED,"usuario o contraseña incorrectos");
+    public ProblemDetail manejarAutenticacion(AuthenticationException ex){
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED,"Usuario o contraseña incorrectos");
 
     }
 
