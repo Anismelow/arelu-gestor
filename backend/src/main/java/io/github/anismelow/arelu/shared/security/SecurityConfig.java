@@ -1,5 +1,6 @@
 package io.github.anismelow.arelu.shared.security;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,8 +14,12 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
+import lombok.extern.slf4j.Slf4j;
+ @Slf4j
 @Configuration
 public class SecurityConfig {
+
+    
 
     SecurityConfig() {
     }
@@ -29,6 +34,7 @@ public class SecurityConfig {
     }
 
     @Bean
+    @ConditionalOnProperty(name = "app.security.enabled", havingValue = "true", matchIfMissing = true)
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http) throws Exception {
         http
@@ -44,6 +50,16 @@ public class SecurityConfig {
 
         return http.build();
 
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "app.security.enabled", havingValue = "false")
+    public SecurityFilterChain sinSeguridad(HttpSecurity http) throws Exception {
+        log.warn("⚠️ SEGURIDAD DESACTIVADA (app.security.enabled=false). Solo para desarrollo.");
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(reglas -> reglas.anyRequest().permitAll());
+        return http.build();
     }
 
     private JwtAuthenticationConverter convertidorDeRoles() {
