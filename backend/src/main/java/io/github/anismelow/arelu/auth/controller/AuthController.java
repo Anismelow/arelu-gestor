@@ -35,7 +35,7 @@ public class AuthController {
 
         return new TokenResponse(
                 token,
-                "bearer",
+                "Bearer",
                 jwtProperties.duracion().toSeconds());
 
     }
