@@ -1,19 +1,5 @@
 package io.github.anismelow.arelu.materiaprima.controller;
 
-import io.github.anismelow.arelu.materiaprima.dto.CompraResponse;
-import io.github.anismelow.arelu.materiaprima.model.UnidadMedida;
-import io.github.anismelow.arelu.materiaprima.service.CompraService;
-import io.github.anismelow.arelu.shared.exception.RecursoNoEncontradoException;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.web.servlet.MockMvc;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,7 +7,24 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
+
+import io.github.anismelow.arelu.materiaprima.dto.CompraResponse;
+import io.github.anismelow.arelu.materiaprima.model.UnidadMedida;
+import io.github.anismelow.arelu.materiaprima.service.CompraService;
+import io.github.anismelow.arelu.shared.exception.RecursoNoEncontradoException;
+
 @WebMvcTest(CompraController.class)
+@AutoConfigureMockMvc(addFilters = false)
 class CompraControllerTest {
 
     @Autowired
